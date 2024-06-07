@@ -28,7 +28,9 @@ cd <DJANGO>
 pip install -r requirements.txt
 
 py manage.py makemigrations 
-py mangae.py migrate 
+```
+py mangae.py migrate
+```
 py mangae.py runserver
 
 
