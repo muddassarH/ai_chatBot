@@ -1,58 +1,23 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+// import React, { useState } from 'react'
+// import axios from 'axios'
+import React from 'react';
+import Test1, { Important } from './Important';
+import { Home } from './Home';
 
 function App() {
-  const [data, setData] = useState(null);
-  const [input, setInput] = useState('')
-  const [systemRole, setSystemRole] = useState('')
-  const [loading, setLoading] = useState(false)
-
-
-  function clickHandler(e) {
-
-    e.preventDefault()
-    if( input.trim() === "" && systemRole.trim() === "" ){
-      return;
-    }
-    setLoading(true)
-    axios({
-      method: 'post',
-      data: {
-        _input: input,
-        system_role: systemRole
-      },
-      url: 'http://localhost:8000/api/'
-    })
-      .then(data => {
-        setData(data.data);
-
-        setLoading(false)
-
-      })
-      .catch((e) => {
-        console.log("This is Error", e);
-
-        setLoading(false)
-
-      })
-  }
-
+  const [isHomePage, setisHomepage] = React.useState(true)
 
   return (
-    <div className='App'>
-      <h1>Data from Django API:</h1>
-      {loading ? <h3>Loading...</h3> : <pre>{data && data._output}</pre>}
+    <>
+
+      {isHomePage ? <Home /> : <Important />}
 
 
-      {!data &&
-        (<>  <input type='text' value={input} onChange={(e) => setInput(e.target.value)} name='_input' />,
-          <br />
-          <input type='text' value={systemRole} onChange={(e) => setSystemRole(e.target.value)} name='system_role' />
-          <button type='submit' onClick={clickHandler}>Send</button>
-        </>)
-      }
-    </div>
+      <button onClick={(e) => setisHomepage(!isHomePage)}>Call Api</button>
+    </>
   );
+
+
 }
 
 export default App;
