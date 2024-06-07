@@ -32,6 +32,7 @@ py manage.py makemigrations
 ```
 py mangae.py migrate
 ```
+```
 py mangae.py runserver
 ```
 
