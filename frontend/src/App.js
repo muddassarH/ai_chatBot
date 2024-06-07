@@ -9,8 +9,12 @@ function App() {
 
 
   function clickHandler(e) {
-    setLoading(true)
+
     e.preventDefault()
+    if( input.trim() === "" && systemRole.trim() === "" ){
+      return;
+    }
+    setLoading(true)
     axios({
       method: 'post',
       data: {
@@ -38,10 +42,15 @@ function App() {
     <div className='App'>
       <h1>Data from Django API:</h1>
       {loading ? <h3>Loading...</h3> : <pre>{data && data._output}</pre>}
-      <input type='text' value={input} onChange={(e) => setInput(e.target.value)} name='_input' />,
-      <br />
-      <input type='text' value={systemRole} onChange={(e) => setSystemRole(e.target.value)} name='system_role' />
-      <button type='submit' onClick={clickHandler}>Send</button>
+
+
+      {!data &&
+        (<>  <input type='text' value={input} onChange={(e) => setInput(e.target.value)} name='_input' />,
+          <br />
+          <input type='text' value={systemRole} onChange={(e) => setSystemRole(e.target.value)} name='system_role' />
+          <button type='submit' onClick={clickHandler}>Send</button>
+        </>)
+      }
     </div>
   );
 }
