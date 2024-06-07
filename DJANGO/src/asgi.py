@@ -14,11 +14,9 @@ channel_layer = get_channel_layer()
 
 import chat.routing as route
 
-
-
 application = ProtocolTypeRouter({
-    "http": django_asgi_app ,
-    "https": django_asgi_app ,
+    "http": django_asgi_app,
+    "https": django_asgi_app,
     'websocket': AuthMiddlewareStack(
         URLRouter(
             route.websocket_urlpatterns

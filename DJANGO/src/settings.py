@@ -30,12 +30,12 @@ SECRET_KEY = 'django-insecure-cd*bq8f)r29un^7@b+8pwuoy*u-96tw+sr2pp^9q@-o8$)8%^%
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+ASGI_APPLICATION = "src.asgi.application"
 
 # Application definition
 
 INSTALLED_APPS = [
-    # 'daphne',
+    'daphne',
     # external apps
     'rest_framework',
     'corsheaders',
@@ -49,8 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'channels',
-    # 'chat',
+    'channels',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -82,8 +82,8 @@ TEMPLATES = [
     },
 ]
 
-# ASGI_APPLICATION = "src.asgi.application"
-WSGI_APPLICATION = "src.wsgi.application"
+
+# WSGI_APPLICATION = "src.wsgi:application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

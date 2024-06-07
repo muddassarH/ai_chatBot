@@ -30,7 +30,7 @@ function App() {
 
       })
       .catch((e) => {
-        console.log("THis is Error", e);
+        console.log("This is Error", e);
 
         setLoading(false)
 

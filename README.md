@@ -31,6 +31,9 @@ cd DJANGO
 pip install -r requirements.txt
 ```
 ```
+python -m pip install -U channels["daphne"]
+```
+```
 py manage.py makemigrations 
 ```
 ```
