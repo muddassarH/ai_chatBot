@@ -24,8 +24,12 @@ npm run dev
 
 ##  TO RUN BACKEND
 # Pre-requisites
-cd <DJANGO>
+```
+cd DJANGO
+```
+```
 pip install -r requirements.txt
+```
 ```
 py manage.py makemigrations 
 ```
