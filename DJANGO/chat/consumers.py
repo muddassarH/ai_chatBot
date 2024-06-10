@@ -44,7 +44,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             }] + self.conversation_history,
             model="llama3-8b-8192",
             temperature=0.5,
-            max_tokens=2024,
+            max_tokens=8024,
             top_p=1,
             stop=None,
             stream=True,
