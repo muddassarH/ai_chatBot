@@ -1,7 +1,7 @@
 // import React, { useState } from 'react'
 // import axios from 'axios'
 import React from 'react';
-import Test1, { Important } from './Important';
+import  { Important } from './Important';
 import { Home } from './Home';
 
 function App() {
@@ -10,10 +10,12 @@ function App() {
   return (
     <>
 
-      {isHomePage ? <Home /> : <Important />}
+      {isHomePage ? (<>
+        <Home />
+        <button onClick={(e) => setisHomepage(!isHomePage)}>Call Api</button>
+      </>) : <Important />}
 
 
-      <button onClick={(e) => setisHomepage(!isHomePage)}>Call Api</button>
     </>
   );
 
