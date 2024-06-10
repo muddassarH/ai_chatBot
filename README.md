@@ -1,6 +1,7 @@
-### under progress
 # AI CHAT BOT 
-##  TO RUN FRONTEND 
+### under progress
+
+ ### TO RUN FRONTEND 
 # Pre-requisites
 - Install [Node.js](https://nodejs.org/en/) Node.js v20.12.0 (LTS)
  
