@@ -1,12 +1,12 @@
 # AI CHAT BOT 
-### under progress
+# Getting started
 
  ### TO RUN FRONTEND 
 # Pre-requisites
 - Install [Node.js](https://nodejs.org/en/) Node.js v20.12.0 (LTS)
  
  
-# Getting started
+
 - Clone the repository
 ```
 git clone  <git url> <project_name>
