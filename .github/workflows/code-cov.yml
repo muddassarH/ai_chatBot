@@ -1,0 +1,35 @@
+name: Run Test cases
+
+on: 
+  pull_request: 
+    branches: [testing]
+  
+jobs:
+    setup:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4
+
+        - name: Create coverage directory
+          run: |
+            mkdir -p ./coverage
+            
+        - name: Install lcov
+          run: sudo apt-get install lcov
+        - name: Copy coverage report from container
+          run: |
+            docker create --name ai-chat-bot-container ai_chatBot:latest
+            docker cp ai-chat-bot-container:/app/jacoco.xml ./coverage/
+            docker rm ai-chat-bot-container
+        - name: Convert JaCoco to LCOV
+          run: |
+            bash <curl -s https://codecov.io/bash) -f ./coverage/jacoco.xml -o ./coverage/lcov.info
+        - name: Upload coverage reports to Codecov
+          uses: codecov/codecov-action@v4.0.1
+          with:
+            token: ${{ secrets.CODECOV_TOKEN }}
+            files: ./coverage/jacoco.xml,./coverage/lcov.info
+            flags: unittests
+            name: codecov-umbrella
+            fail_ci_if_error: true
