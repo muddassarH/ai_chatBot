@@ -2,7 +2,7 @@ name: Run Test cases
 
 on: 
   pull_request: 
-    branches: [testing]
+    # branches: [testing]
   
 jobs:
     setup:
